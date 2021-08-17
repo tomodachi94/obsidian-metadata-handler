@@ -1,0 +1,39 @@
+# "Obsidian Metadata Handler" by Tomodachi94
+# MIT License
+# Check the "LICENSE.md" file for more information.
+import pathlib
+import os
+from datetime import date, datetime
+import argparse
+import frontmatter as fm
+
+__author__ = "Tomodachi94"
+
+# Initializes classes from packages, for later use
+flag_parser = argparse.ArgumentParser()
+
+# Command line arguments
+flag_parser.add_argument("-p", "--path", help = "Path to your Markdown files.", type = str)
+
+args = flag_parser.parse_args()
+
+# Main bits of logic
+path_to_walk = args.path
+path_to_walk = str(path_to_walk)
+files = os.walk(args.path)
+
+def dateCreatedHandler(path):
+    """
+    Gets the created timestamp from the `path` variable.
+    """
+    file = pathlib.Path(path)
+    ctime = datetime.fromtimestamp(file.stat().st_ctime)
+    return ctime
+
+for item in files:
+    print(item)
+    for x in item:   
+        timestamp = dateCreatedHandler(item)
+        file = fm.load(item)
+        file["created_date"] = timestamp
+        fm.dump(file, item)
