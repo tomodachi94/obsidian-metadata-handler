@@ -12,7 +12,7 @@ __author__ = "Tomodachi94"
 flag_parser = argparse.ArgumentParser()
 
 # Command line arguments
-flag_parser.add_argument("-p", "--path", help = "Path to your Markdown files.", type = str)
+flag_parser.add_argument("-p", "--path", help="Path to your Markdown files.", type=str)
 
 args = flag_parser.parse_args()
 
@@ -20,6 +20,7 @@ args = flag_parser.parse_args()
 path_to_walk = args.path
 path_to_walk = str(path_to_walk)
 files = pathlib.Path(args.path).rglob(pattern="*.md")
+
 
 def dateCreatedHandler(path):
     """
@@ -29,8 +30,9 @@ def dateCreatedHandler(path):
     ctime = datetime.fromtimestamp(file.stat().st_ctime)
     return ctime
 
+
 for item in files:
-    print(item)   
+    print(item)
     timestamp = dateCreatedHandler(item)
     file = fm.load(item)
     file["created_date"] = timestamp
