@@ -28,3 +28,6 @@ python main.py -p "full_path_to_your_vault"
 ### Native builds
 
 These are being worked on, stay tuned!
+
+## See also:
+- [Forum post](https://forum.obsidian.md/t/yaml-metadata-prefixer-a-python-script/22738)
