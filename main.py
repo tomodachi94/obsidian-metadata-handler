@@ -2,7 +2,6 @@
 # MIT License
 # Check the "LICENSE.md" file for more information.
 import pathlib
-import os
 from datetime import date, datetime
 import argparse
 import frontmatter as fm
@@ -20,7 +19,7 @@ args = flag_parser.parse_args()
 # Main bits of logic
 path_to_walk = args.path
 path_to_walk = str(path_to_walk)
-files = os.walk(args.path)
+files = pathlib.Path(args.path).rglob(pattern="*.md")
 
 def dateCreatedHandler(path):
     """
@@ -31,9 +30,8 @@ def dateCreatedHandler(path):
     return ctime
 
 for item in files:
-    print(item)
-    for x in item:   
-        timestamp = dateCreatedHandler(item)
-        file = fm.load(item)
-        file["created_date"] = timestamp
-        fm.dump(file, item)
+    print(item)   
+    timestamp = dateCreatedHandler(item)
+    file = fm.load(item)
+    file["created_date"] = timestamp
+    fm.dump(file, item)
