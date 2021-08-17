@@ -2,7 +2,7 @@
 # MIT License
 # Check the "LICENSE.md" file for more information.
 import pathlib
-from datetime import date, datetime
+from datetime import datetime
 import argparse
 import frontmatter as fm
 
