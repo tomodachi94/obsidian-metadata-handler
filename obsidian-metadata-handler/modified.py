@@ -37,5 +37,8 @@ for item in files:
     print(item)
     timestamp = h.dateCreatedHandler(item)
     file = fm.load(item)
-    file["created_date"] = timestamp
-    fm.dump(file, item)
+    if file["created_date"] == True:
+        pass
+    else:
+        file["created_date"] = timestamp
+        fm.dump(file, item)
