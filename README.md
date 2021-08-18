@@ -6,6 +6,8 @@
 
 **Note: This is unoffical and is not associated with the developers of Obsidian.**
 
+So far, this script is able to fill in the created and modified dates. Filenames are coming soon.
+
 ## Use cases
 
 - You want to move some files around, but are scared of losing the metadata?
@@ -16,18 +18,28 @@ This is for you!
 
 ## Running from source
 
-### Universal
+**It's recommended to do modified date first, as the modified date *will* be overrided when updating the YAML frontmatter.**
 
-Assuming you have Python installed:
+This assumes you have Python and `pip` installed as a prerequisite.
+
+### Modified dates
 
 ```bash
 pip install -r requirements.txt
-python main.py -p "full_path_to_your_vault"
+python obsidain-metadata-handler/modified.py -p "full_path_to_your_vault"
 ```
 
-### Native builds
+### Creation dates
+
+```bash
+pip install -r requirements.txt
+python obsidain-metadata-handler/created.py -p "full_path_to_your_vault"
+```
+
+## Native builds
 
 These are being worked on, stay tuned!
 
-## See also:
+## See also
+
 - [Forum post](https://forum.obsidian.md/t/yaml-metadata-prefixer-a-python-script/22738)
