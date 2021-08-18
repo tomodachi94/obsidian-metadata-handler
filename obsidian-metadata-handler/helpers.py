@@ -5,6 +5,8 @@ import pathlib
 from datetime import datetime
 
 __author__ = "Tomodachi94"
+
+
 def dateModifiedHandler(path):
     """
     Gets the file modified timestamp from the `path` variable.
@@ -12,6 +14,7 @@ def dateModifiedHandler(path):
     file = pathlib.Path(path)
     mtime = datetime.fromtimestamp(file.stat().st_mtime)
     return mtime
+
 
 def dateCreatedHandler(path):
     """
