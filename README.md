@@ -26,14 +26,14 @@ This assumes you have Python and `pip` installed as a prerequisite.
 
 ```bash
 pip install -r requirements.txt
-python obsidain-metadata-handler/modified.py -p "full_path_to_your_vault"
+python obsidian-metadata-handler/modified.py -p "full_path_to_your_vault"
 ```
 
 ### Creation dates
 
 ```bash
 pip install -r requirements.txt
-python obsidain-metadata-handler/created.py -p "full_path_to_your_vault"
+python obsidian-metadata-handler/created.py -p "full_path_to_your_vault"
 ```
 
 ## Native builds
