@@ -1,6 +1,6 @@
 # Obsidian Metadata Handler
 
-:warning: **This script is in early alpha! Backup and version control your Obsidian files before attempting to run this script.** :warning:
+:warning: **This script has been deprecated. It's not guaranteed to work.** :warning:
 
 > A small Python script to update system metadata and then put it into the YAML frontmatter.
 
