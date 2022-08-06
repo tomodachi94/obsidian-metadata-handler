@@ -19,16 +19,26 @@ flag_parser.add_argument("-p", "--path", help="Path to your Markdown files.", ty
 args = flag_parser.parse_args()
 
 # Main bits of logic
-path_to_walk = str(args.path)
+path_to_walk = args.path
+path_to_walk = str(path_to_walk)
 files = pathlib.Path(args.path).rglob(pattern="*.md")
-# TODO: catch bad paths?
+
+
+def dateModifiedHandler(path):
+    """
+    Gets the created timestamp from the `path` variable.
+    """
+    file = pathlib.Path(path)
+    ctime = datetime.fromtimestamp(file.stat().st_ctime)
+    return ctime
+
 
 for item in files:
     print(item)
-    timestamp = h.dateModifiedHandler(item)
+    timestamp = h.dateCreatedHandler(item)
     file = fm.load(item)
-    if file["modified_date"] == True:
+    if file["created_date"] == True:
         pass
     else:
-        file["modified_date"] = timestamp
+        file["created_date"] = timestamp
         fm.dump(file, item)
